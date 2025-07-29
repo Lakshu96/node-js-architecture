@@ -1,0 +1,14 @@
+const path = require('path');
+// Register ts-node to handle TypeScript files
+require('ts-node').register({
+  transpileOnly: true,
+  compilerOptions: {
+    module: 'commonjs'
+  }
+});
+module.exports = {
+  config: path.resolve('config', 'config.mjs'), // Or config.js
+  modelsPath: path.resolve('models'),
+  migrationsPath: path.resolve('migrations'),
+  seedersPath: path.resolve('seeders')
+};

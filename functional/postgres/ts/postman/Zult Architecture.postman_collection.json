@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "285aba3b-3db3-4c49-868f-68923313d21f",
+		"name": "Zult Architecture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40903106"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Signup",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept-language",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "Itechnolabs",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Biz",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "itechlabs@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Test@123",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "Test@123",
+											"type": "text"
+										},
+										{
+											"key": "phone_code",
+											"value": "+91",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "9999999999",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/itechnolabs/Downloads/fantasy-troll-beautiful-environment (1).jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resend OTP",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept-language",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"itechlabs@yopmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/resend-otp",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"resend-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"itechlabs@yopmail.com\",\n    \"otp\": \"576217\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/verify",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"itechlabs@yopmail.com\",\n    \"password\": \"Test@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept-language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"Test@123\",\n    \"new_password\": \"Test@1234\",\n    \"confirm_new_password\": \"Test@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/change-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Account",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Image Uploads",
+					"item": [
+						{
+							"name": "Upload Image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/itechnolabs/Pictures/ChatGPT Image Jul 18, 2025, 04_09_58 PM (1).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/upload-image",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"image_url\": \"http://localhost:8000/uploads/2025/6/16/images-ac86bb09-6f20-42b3-a53c-e4f05579270f-1750060061.png\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/delete-image",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"delete-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Image AWS",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/DELL/Pictures/Screenshots/Screenshot (3).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/upload-image-aws",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"upload-image-aws"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Image AWS",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"image_url\": \"https://jobrs3bucket.s3.amazonaws.com/2025/6/24/image-9d64fbee-3c6e-4add-bc2c-1c30d3f15c48-1750761293.png\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/delete-image-aws",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"delete-image-aws"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Bulk Images",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "images",
+											"type": "file",
+											"src": [
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-07-27 13-16-50.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-08-31 19-17-48.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-08-31 20-36-34.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-10-07 17-41-20.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-07-27 13-16-50.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-08-31 19-17-48.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-08-31 20-36-34.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-09-03 22-02-35.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-10-07 17-41-20.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-10-27 10-52-22.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-10-27 10-53-57.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-11-29 23-05-46.png",
+												"/home/laksh/Pictures/Screenshots/Screenshot from 2024-11-29 23-06-56.png"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/users/upload-bulk-images",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"upload-bulk-images"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users?page=2&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
