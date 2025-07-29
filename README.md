@@ -87,7 +87,7 @@ npm run start # Production mode
 
 ---
 
-## 📡 WebSocket + Redis
+## 📡 Socket + Redis
 
 - Real-time communication using `socket.io`
 - Scalable architecture using `socket.io-redis` adapter
