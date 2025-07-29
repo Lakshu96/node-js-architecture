@@ -1,5 +1,5 @@
 
-# 🚀 Node.js Scalable Architecture (MySQL + MongoDB)
+# 🚀 Node.js Scalable Architecture (MySQL + MongoDB + Postgres)
 
 This project is a modular and scalable Node.js backend setup using a combination of **functional and class-based programming**. It supports both **MySQL** (via Sequelize) and **MongoDB** (via Mongoose), and includes essential features like authentication, email verification, Socket.io with Redis, multi-language support, and AWS S3 file upload.
 
